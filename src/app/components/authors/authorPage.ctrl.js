@@ -1,21 +1,14 @@
-function authorPageController() {
-  this.authors = [
-		{
-			id: 'cory-house', 
-			firstName: 'Cory', 
-			lastName: 'House'
-		},	
-		{
-			id: 'scott-allen', 
-			firstName: 'Scott', 
-			lastName: 'Allen'
-		},	
-		{
-			id: 'dan-wahlin', 
-			firstName: 'Dan', 
-			lastName: 'Wahlin'
-		}
-	];
+function authorPageController(AuthorStore) {
+  this.authors = AuthorStore.getAllAuthors();
+  
+  this._onChange = function _onChange() {
+    this.authors = AuthorStore.getAllAuthors();
+  };
+  
+  AuthorStore.addChangeListener(this._onChange);
 }
 
-exampleApp.controller('authorPageController', authorPageController);
+exampleApp.controller('authorPageController', [
+  'AuthorStore',
+  authorPageController
+]);

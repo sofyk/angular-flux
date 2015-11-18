@@ -6,7 +6,10 @@
       <th>Name</th>
     </thead>
     <tbody>
-      <tr author-item ng-repeat="author in authorListCtrl.authors track by author.id" author="author"/>
+      <tr author-item
+        ng-repeat="author in authorListCtrl.authors track by author.id"
+        author="author"/>
+      <tr author-form />
     </tbody>
   </table>
 </div>
