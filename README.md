@@ -19,3 +19,14 @@ Chrome will launch automatically.
 
 Happy hacking!
 
+## Compile
+
+When you run:
+```sh
+$ grunt compile
+```
+a minified production build will be generated in /bin
+
+Because everything is compiled, no XHR requests are needed to retrieve templates,
+so until this needs to communicate with your backend there is no need to run it from a web server.
+
