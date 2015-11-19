@@ -38,19 +38,21 @@ var AuthorApi = {
 	saveAuthor: function(author) {
 		//pretend an ajax call to web api is made here
 		console.log('Pretend this just saved the author to the DB via AJAX call...');
+    
+    var _author = _clone(author);
 		
-		if (author.id) {
-			var existingAuthorIndex = _.indexOf(authors, _.find(authors, {id: author.id})); 
-			authors.splice(existingAuthorIndex, 1, author);
+		if (_author.id) {
+			var existingAuthorIndex = _.indexOf(authors, _.find(authors, {id: _author.id})); 
+			authors.splice(existingAuthorIndex, 1, _author);
 		} else {
 			//Just simulating creation here.
 			//The server would generate ids for new authors in a real app.
 			//Cloning so copy returned is passed by value rather than by reference.
-			author.id = _generateId(author);
-			authors.push(author);
+			_author.id = _generateId(_author);
+			authors.push(_author);
 		}
 
-		return _clone(author);
+		return _author;
 	},
 
 	deleteAuthor: function(id) {

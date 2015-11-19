@@ -1,11 +1,13 @@
 function authorFormController($scope, $attrs, AuthorActions) {
-  this.author = {
+  var vm = this;
+  
+  vm.author = {
     firstName: '',
     lastName: ''
   };
   
-  this.addAuthor = function addAuthor() {
-    AuthorActions.createAuthor(this.author);
+  vm.addAuthor = function addAuthor() {
+    AuthorActions.createAuthor(vm.author);
   };
 }
 

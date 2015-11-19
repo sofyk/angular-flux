@@ -1,11 +1,13 @@
 function authorPageController(AuthorStore) {
-  this.authors = AuthorStore.getAllAuthors();
+  var vm = this;
   
-  this._onChange = function _onChange() {
-    this.authors = AuthorStore.getAllAuthors();
+  vm.authors = AuthorStore.getAllAuthors();
+  
+  vm._onChange = function _onChange() {
+    vm.authors = AuthorStore.getAllAuthors();
   };
   
-  AuthorStore.addChangeListener(this._onChange);
+  AuthorStore.addChangeListener(vm._onChange);
 }
 
 exampleApp.controller('authorPageController', [

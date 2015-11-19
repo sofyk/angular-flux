@@ -1,7 +1,9 @@
 function authorItemController($scope, $attrs, AuthorActions) {
-  this.author = $scope.$eval($attrs.author);
+  var vm = this;
   
-  this.deleteAuthor = function deleteAuthor(id) {
+  vm.author = $scope.$eval($attrs.author);
+  
+  vm.deleteAuthor = function deleteAuthor(id) {
 		AuthorActions.deleteAuthor(id);
 		console.log('Author Deleted');
   };
