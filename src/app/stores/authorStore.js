@@ -1,18 +1,21 @@
-/* globals _ */
-
-var CHANGE_EVENT = 'change';
-var AuthorStore = {};
-
-// providining initial data here just as an example
-// in real app you'll get it from API call event.
-var _authors = [
-  { id: 'cory-house', firstName: 'Cory', lastName: 'House' },	
-  { id: 'scott-allen', firstName: 'Scott', lastName: 'Allen' },	
-  { id: 'dan-wahlin', firstName: 'Dan', lastName: 'Wahlin' }
-];
+/* globals exampleApp, _, angular, EventEmitter2 */
 
 function AuthorStoreSrv(AppDispatcher, ActionTypes) {
-  AuthorStore = angular.extend({}, EventEmitter2.prototype, {
+  var CHANGE_EVENT = 'change';
+  
+  var _clone = function(item) {
+    return JSON.parse(JSON.stringify(item)); //return cloned copy so that the item is passed by value instead of by reference
+  };
+  
+  // providining initial data here just as an example
+  // in real app you'll get it from API call event.
+  var _authors = [
+    { id: 'cory-house', firstName: 'Cory', lastName: 'House' },	
+    { id: 'scott-allen', firstName: 'Scott', lastName: 'Allen' },	
+    { id: 'dan-wahlin', firstName: 'Dan', lastName: 'Wahlin' }
+  ];
+  
+  var AuthorStore = angular.extend({}, EventEmitter2.prototype, {
     addChangeListener: function(callback) {
       this.on(CHANGE_EVENT, callback);
     },
@@ -26,11 +29,11 @@ function AuthorStoreSrv(AppDispatcher, ActionTypes) {
     },
   
     getAllAuthors: function() {
-      return _authors;
+      return _clone(_authors);
     },
   
     getAuthorById: function(id) {
-      return _.find(_authors, {id: id});
+      return _clone(_.find(_authors, {id: id}));
     }
   });
   
