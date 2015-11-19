@@ -12,32 +12,14 @@ var _authors = [
 ];
 
 function AuthorStoreSrv(AppDispatcher, ActionTypes) {
-  AuthorStore = angular.extend({}, {
-    // TODO: Event Emitter should be separate class that store
-    // is extended from.
-    // START: Event Emitter
-    listeners: [],
-  
-    emit: function emit(event) {
-      this.listeners.forEach( function emitToEach(listener) {
-        listener(event);
-      });
-    },
-  
-    addListener: function addListener(listener) {
-      this.listeners.push(listener);
-      return this.listeners.length - 1;
-    },
-    // END: Event Emitter
-    
+  AuthorStore = angular.extend({}, EventEmitter2.prototype, {
     addChangeListener: function(callback) {
-      this.addListener(callback);
+      this.on(CHANGE_EVENT, callback);
     },
   
-    // TODO: implement remove listener
-    // removeChangeListener: function(callback) {
-    //   this.removeListener(CHANGE_EVENT, callback);
-    // },
+    removeChangeListener: function(callback) {
+      this.removeListener(CHANGE_EVENT, callback);
+    },
   
     emitChange: function() {
       this.emit(CHANGE_EVENT);

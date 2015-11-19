@@ -65,7 +65,8 @@ module.exports = {
       'vendor/angular-ui-router/release/angular-ui-router.js',
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/flux/dist/Flux.js',
-      'vendor/lodash/lodash.min.js'
+      'vendor/lodash/lodash.min.js',
+      'vendor/eventemitter2/lib/eventemitter2.js'
     ],
     css: [
     ],
