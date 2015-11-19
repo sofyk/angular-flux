@@ -1,20 +1,8 @@
 //This would be performed on the server in a real app. Just stubbing in.
 var authors = [
-  {
-    id: 'cory-house', 
-    firstName: 'Cory', 
-    lastName: 'House'
-  },	
-  {
-    id: 'scott-allen', 
-    firstName: 'Scott', 
-    lastName: 'Allen'
-  },	
-  {
-    id: 'dan-wahlin', 
-    firstName: 'Dan', 
-    lastName: 'Wahlin'
-  }
+  { id: 'douglas-adams', firstName: 'Douglas', lastName: 'Adams' },	
+  { id: 'john-tolkien', firstName: 'John', lastName: 'Tolkien' },	
+  { id: 'francis-fitzgerald', firstName: 'Francis', lastName: 'Fitzgerald' }
 ];
 
 var _generateId = function(author) {

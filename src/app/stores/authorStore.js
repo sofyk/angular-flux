@@ -10,9 +10,9 @@ function AuthorStoreSrv(AppDispatcher, ActionTypes) {
   // providining initial data here just as an example
   // in real app you'll get it from API call event.
   var _authors = [
-    { id: 'cory-house', firstName: 'Cory', lastName: 'House' },	
-    { id: 'scott-allen', firstName: 'Scott', lastName: 'Allen' },	
-    { id: 'dan-wahlin', firstName: 'Dan', lastName: 'Wahlin' }
+    { id: 'douglas-adams', firstName: 'Douglas', lastName: 'Adams' },	
+    { id: 'john-tolkien', firstName: 'John', lastName: 'Tolkien' },	
+    { id: 'francis-fitzgerald', firstName: 'Francis', lastName: 'Fitzgerald' }
   ];
   
   var AuthorStore = angular.extend({}, EventEmitter2.prototype, {
