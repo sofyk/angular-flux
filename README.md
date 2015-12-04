@@ -2,6 +2,8 @@
 
 Flux architecture implemintation in Angular 1.x
 
+Created based on [ngbp](https://github.com/ngbp/ngbp)
+
 ***
 
 ## Quick Start
